@@ -88,7 +88,7 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR='nano'
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -99,11 +99,12 @@ export EDITOR='nano'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
+
 
 export PNPM_HOME="/home/luke/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 export EDITOR="/usr/bin/nano"
+export PATH="$HOME/.cargo/env:$PATH"
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
