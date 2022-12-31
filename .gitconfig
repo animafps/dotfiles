@@ -1,0 +1,18 @@
+[user]
+	email = 18208134+animafps@users.noreply.github.com
+	name = Anima
+	signingkey = ~/.ssh/github
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
+[core]
+	editor = nano
+[color]
+	status = auto
+	diff = auto
+	branch = auto
+	interactive = auto
+	grep = auto
+[url "git@github.com:"]
+	insteadOf = https://github.com/
