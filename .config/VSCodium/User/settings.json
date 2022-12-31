@@ -7,4 +7,7 @@
     "redhat.telemetry.enabled": false,
     "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
     "terminal.integrated.defaultProfile.linux": "zsh",
+    "editor.codeActionsOnSave": {
+    
+    },
 }
