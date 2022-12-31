@@ -1,10 +1,30 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-fpath+=$HOME/.config/zsh/plugins/zsh-completions/src
+source "${HOME}/.config/zsh/zgenom/zgenom.zsh"
 
-source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+zgenom autoupdate
 
-source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# if the init script doesn't exist
+if ! zgenom saved; then
+    # specify plugins here
+    zgenom ohmyzsh
+
+    zgenom ohmyzsh plugins/git
+    zgenom ohmyzsh plugins/sudo
+    zgenom ohmyzsh plugins/colored-man-pages
+
+    zgenom load unixorn/fzf-zsh-plugin
+    zgenom load zdharma-continuum/fast-syntax-highlighting
+    zgenom load zsh-users/zsh-history-substring-search
+    zgenom load chrissicool/zsh-256color
+    zgenom load zsh-users/zsh-completions src
+    zgenom load RobSis/zsh-completion-generator
+    zgenom load peterhurford/git-it-on.zsh
+    zgenom load zsh-users/zsh-autosuggestions
+
+    # generate the init script from plugins above
+    zgenom save
+fi
 
 # User configuration
 
