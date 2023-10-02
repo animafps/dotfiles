@@ -12,4 +12,4 @@ if [ $? = 0 ]; then
 fi;
 config checkout
 config config status.showUntrackedFiles no
-config submodules update --init --recursive
+git clone https://github.com/jandamm/zgenom.git "${HOME}/.zgenom"

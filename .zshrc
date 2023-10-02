@@ -1,6 +1,6 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-source "${HOME}/.config/zsh/zgenom/zgenom.zsh"
+source "${HOME}/.zgenom/zgenom.zsh"
 
 zgenom autoupdate
 
