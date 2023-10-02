@@ -47,3 +47,5 @@
 	
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[credential]
+	helper = /usr/lib/git-core/git-credential-libsecret
