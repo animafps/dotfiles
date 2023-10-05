@@ -9,6 +9,7 @@ bat_charging = "|^| "
 [[block]]
 block = "keyboard_layout"
 format = " $layout - $variant "
+interval = 15
 
 [[block]]
 block = "cpu"
