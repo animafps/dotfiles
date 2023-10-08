@@ -43,21 +43,41 @@ exec --no-startup-id dbus-update-activation-environment --all
 
 exec --no-startup-id dex --autostart --environment i3
 
-exec --no-startup-id feh --bg-scale ~/.wallpaper/wallhaven-e7kpl8.png
+exec --no-startup-id feh --bg-fill --randomize ~/.wallpaper/*
 
 exec --no-startup-id picom -bc --config $HOME/.config/picom.conf
 
-exec -no-startup-id pipewire
-exec -no-startup-id pipewire-pulse
-exec -no-startup-id wireplumber
+exec --no-startup-id pipewire
+exec --no-startup-id pipewire-pulse
+exec --no-startup-id wireplumber
 
 exec_always --no-startup-id polybar 
 
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id spotifyd
+
+exec --no-startup-id dunst
+
+exec --no-startup-id xidlehook --not-when-audio --not-when-fullscreen --timer 360 "betterlockscreen -l dim" ""
+
+mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
+
+  bindsym l exec betterlockscreen -l dim && sleep 1
+
+  bindsym r exec reboot
+
+  bindsym s exec shutdown
+
+  bindsym Escape mode "default"
+
+  bindsym Return mode "default"
+
+}
+
+bindsym $mod+Pause mode "exit: [l]ogout, [r]eboot, [s]hutdown"
+
 
 bindsym $mod+F11 exec setxkbmap -layout us
 bindsym $mod+F12 exec setxkbmap -layout us -variant workman
-
 
 set $refresh_i3status killall -SIGUSR1 i3status
 

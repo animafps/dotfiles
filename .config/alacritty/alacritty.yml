@@ -1,19 +1,20 @@
 window:
   opacity: 0.2
   padding:
-    x: 20
-    y: 20
+    x: 10
+    y: 10
   
 font:
   normal:
     style: Medium
     family: "FiraCode Nerd Font"
     size: 12px
+
 schemes:
   # Tokyo Night theme, based on both:
   #   https://github.com/ghifarit53/tokyonight-vim
   #   https://github.com/enkia/tokyo-night-vscode-theme
-tokyo-night: &tokyo-night
+  tokyo-night: &tokyo-night
     # Default colors
     primary:
       background: '#1a1b26'
