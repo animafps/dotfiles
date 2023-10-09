@@ -39,7 +39,7 @@ export PATH="$PNPM_HOME:$PATH"
 export EDITOR="/usr/bin/nano"
 export PATH="$HOME/.cargo/env:$PATH"
 
-alias update='sudo pacman -Sy && sudo powerpill -Su && yay -Su'
+alias update='sudo pacman -Sy && sudo powerpill -Su && paru -Su'
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 export NVM_DIR="$HOME/.nvm"
