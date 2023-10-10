@@ -13,3 +13,5 @@ fi;
 config checkout
 config config status.showUntrackedFiles no
 git clone https://github.com/jandamm/zgenom.git "${HOME}/.zgenom"
+mkdir -p ~/.config/alacritty/themes
+git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
