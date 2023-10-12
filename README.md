@@ -1,11 +1,8 @@
 # dotfiles
 
-https://www.atlassian.com/git/tutorials/dotfiles
+```sh
+curl -o install.sh https://raw.githubusercontent.com/animafps/dotfiles/master/.bin/install.sh
 
-
-## Requirements
-
-- ZShell
-- Starship
-- FiraCode Nerd Font
-- git
+chmod +x install.sh
+./install.sh
+```
