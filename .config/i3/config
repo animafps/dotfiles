@@ -79,6 +79,8 @@ bindsym $mod+Pause mode "exit: [l]ogout, [r]eboot, [s]hutdown"
 bindsym $mod+F11 exec setxkbmap -layout us
 bindsym $mod+F12 exec setxkbmap -layout us -variant workman
 
+bindsym Print exec scrot ~/screenshots/%Y-%m-%d-%T-screenshot.png
+
 # set $refresh_i3status killall -SIGUSR1 i3status
 
 floating_modifier $mod

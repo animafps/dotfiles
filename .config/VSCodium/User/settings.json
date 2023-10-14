@@ -1,6 +1,6 @@
 {
     "workbench.iconTheme": "vscode-icons",
-    "workbench.colorTheme": "Tokyo Night",
+    "workbench.colorTheme": "Gruvbox Dark Hard",
     "editor.fontFamily": "'JetBrains Mono'",
     "git.autofetch": true,
     "git.confirmSync": false,
@@ -10,4 +10,7 @@
     "editor.codeActionsOnSave": {
     
     },
+    "explorer.confirmDelete": false,
+    "window.menuBarVisibility": "toggle",
+    "explorer.confirmDragAndDrop": false,
 }
