@@ -4,7 +4,7 @@ git clone https://github.com/jandamm/zgenom.git "${HOME}/.zgenom"
 mkdir -p ~/.config/alacritty/themes
 git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
 if command -v pacman >/dev/null 2>&1; then
-        sudo pacman -S alacritty starship polybar picom dunst rofi pipewire pipewire-pulse spotifyd pipewire-audio wireplumper ranger easyeffects mpv zsh dex feh scrot nerdfonts 
+        sudo pacman -S alacritty polybar picom dunst rofi pipewire pipewire-pulse spotifyd pipewire-audio wireplumper sccache ranger easyeffects mpv dex feh scrot nerdfonts 
         mkdir ~/git
         git clone https://aur.archlinux.org/paru.git ~/git/paru
         cd ~/git/paru
@@ -12,3 +12,5 @@ if command -v pacman >/dev/null 2>&1; then
         cd ~
         paru -S xcwd-git xidlehook betterlockscreen
 fi
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+/usr/bin/cargo install nu starship porsmo bat bacon 
