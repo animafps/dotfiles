@@ -3,6 +3,12 @@
 # version = "0.86.0"
 
 use ~/.cache/starship/init.nu
+#use ~/.config/nushell/scripts/custom-completions/cargo/cargo-completions.nu *
+#use ~/.config/nushell/scripts/custom-completions/git/git-completions.nu *
+#use ~/.config/nushell/scripts/custom-completions/make/make-completions.nu *
+#use ~/.config/nushell/scripts/custom-completions/man/man-completions.nu *
+#use ~/.config/nushell/scripts/custom-completions/nano/nano-completions.nu *
+use ~/.config/nushell/scripts/modules/maths/math_functions.nu *
 
 # For more information on defining custom themes, see
 # https://www.nushell.sh/book/coloring_and_theming.html
@@ -208,7 +214,7 @@ $env.config = {
         external: {
             enable: true # set to false to prevent nushell looking into $env.PATH to find more suggestions, `false` recommended for WSL users as this look up may be very slow
             max_results: 100 # setting it lower can improve completion performance at the cost of omitting some options
-            completer: null # check 'carapace_completer' above as an example
+            completer: $carapace_completer # check 'carapace_completer' above as an example
         }
     }
 
