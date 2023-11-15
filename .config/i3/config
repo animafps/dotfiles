@@ -51,9 +51,9 @@ exec --no-startup-id pipewire
 exec --no-startup-id pipewire-pulse
 exec --no-startup-id wireplumber
 
-exec_always --no-startup-id polybar 
+exec_always --no-startup-id ~/.config/polybar/launch 
 
-exec --no-startup-id spotifyd
+exec_always --no-startup-id spotifyd
 
 exec --no-startup-id dunst
 
@@ -91,7 +91,7 @@ default_border none
 
 gaps inner 10
 
-bindsym $mod+Return exec alacritty --working-directory "`xcwd`"
+bindsym $mod+Return exec alacritty
 
 bindsym $mod+Shift+q kill
 

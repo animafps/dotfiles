@@ -1,0 +1,14 @@
+#!/sbin/openrc-run
+supervisor=supervise-daemon
+command=/usr/bin/spotifyd
+USER=${RC_SCVNAME##*.}
+SPDCONF="/home/${USER}/.config/spotifyd/spotifyd.conf"
+
+command_user="${USER}"
+command_args="--no-daemon"
+
+start_pre()
+{
+    checkpath -d ${SPDCONF}
+}
+

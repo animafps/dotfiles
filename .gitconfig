@@ -1,7 +1,7 @@
 [user]
 	email = 18208134+animafps@users.noreply.github.com
 	name = Anima
-	signingkey = ~/.ssh/github
+	signingkey = ~/.ssh/id_ed25519
 
 [commit]
 	gpgsign = true
@@ -47,8 +47,6 @@
 	
 [url "git@github.com:"]
 	insteadOf = https://github.com/
-[credential]
-	helper = /usr/lib/git-core/git-credential-libsecret
 [push]
 	autoSetupRemote = true
 [filter "lfs"]

@@ -1,6 +1,7 @@
 # Nushell Config File
 #
 # version = "0.86.0"
+$env.PATH = ($env.PATH | split row (char esep) | append '/home/luke/.cargo/bin')
 
 use ~/.cache/starship/init.nu
 #use ~/.config/nushell/scripts/custom-completions/cargo/cargo-completions.nu *
@@ -8,7 +9,7 @@ use ~/.cache/starship/init.nu
 #use ~/.config/nushell/scripts/custom-completions/make/make-completions.nu *
 #use ~/.config/nushell/scripts/custom-completions/man/man-completions.nu *
 #use ~/.config/nushell/scripts/custom-completions/nano/nano-completions.nu *
-use ~/.config/nushell/scripts/modules/maths/math_functions.nu *
+#use ~/.config/nushell/scripts/modules/maths/math_functions.nu *
 
 # For more information on defining custom themes, see
 # https://www.nushell.sh/book/coloring_and_theming.html
