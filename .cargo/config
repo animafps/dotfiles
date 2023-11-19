@@ -2,3 +2,5 @@
 rustflags = ["-C", "target-cpu=native", "-C", "opt-level=3"]
 [build]
 rustc-wrapper = "sccache"
+[net]
+git-fetch-with-cli = true
