@@ -47,6 +47,8 @@ exec --no-startup-id feh --bg-fill --randomize ~/.wallpaper/*
 
 exec --no-startup-id picom -bc --config $HOME/.config/picom.conf
 
+exec --no-startup-id spotifyd
+
 exec --no-startup-id pipewire
 exec --no-startup-id pipewire-pulse
 exec --no-startup-id wireplumber
