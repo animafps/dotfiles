@@ -1,8 +1,44 @@
-require('mason').setup()
-require('mason-lspconfig').setup()
+vim.g.mapleader = ';'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+require("lazy").setup("plugins")
+
+require("mason").setup({
+    ui = {
+        icons = {
+            package_installed = "",
+            package_pending = "",
+            package_uninstalled = "",
+        },
+    }
+})
+require("mason-lspconfig").setup()
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+-- Enable telescope theme
+vim.g.gruvbox_baby_telescope_theme = 1
+
+-- Enable transparent mode
+vim.g.gruvbox_baby_transparent_mode = 1
+
+-- Load the colorscheme
+vim.cmd[[colorscheme gruvbox-baby]]
 
 local rt = require("rust-tools")
-
 rt.setup({
   server = {
     on_attach = function(_, bufnr)
@@ -14,7 +50,6 @@ rt.setup({
   },
 })
 
--- LSP Diagnostics Options Setup 
 local sign = function(opts)
   vim.fn.sign_define(opts.name, {
     texthl = opts.name,
@@ -22,11 +57,6 @@ local sign = function(opts)
     numhl = ''
   })
 end
-
-sign({name = 'DiagnosticSignError', text = ''})
-sign({name = 'DiagnosticSignWarn', text = ''})
-sign({name = 'DiagnosticSignHint', text = ''})
-sign({name = 'DiagnosticSignInfo', text = ''})
 
 vim.diagnostic.config({
     virtual_text = false,
@@ -42,11 +72,28 @@ vim.diagnostic.config({
     },
 })
 
+--Set completeopt to have a better completion experience
+-- :help completeopt
+-- menuone: popup even when there's only one match
+-- noinsert: Do not insert text until a selection is made
+-- noselect: Do not select, force to select one from the menu
+-- shortness: avoid showing extra messages when using completion
+-- updatetime: set updatetime for CursorHold
+vim.opt.completeopt = {'menuone', 'noselect', 'noinsert'}
+vim.opt.shortmess = vim.opt.shortmess + { c = true}
+vim.api.nvim_set_option('updatetime', 300) 
+
+-- Fixed column for diagnostics to appear
+-- Show autodiagnostic popup on cursor hover_range
+-- Goto previous / next diagnostic warning / error 
+-- Show inlay_hints more frequently 
 vim.cmd([[
-set signcolumn=yes
+set signcolumn=number
+set number
 autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 ]])
 
+-- Completion Plugin Setup
 local cmp = require'cmp'
 cmp.setup({
   -- Enable LSP snippets
@@ -99,3 +146,13 @@ cmp.setup({
   },
 })
 
+local telescope = require('telescope')
+telescope.setup({
+  defaults = {
+    borderchars = {
+      prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
+      results = { " " },
+      preview = { " " },
+    },
+  }
+})
