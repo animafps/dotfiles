@@ -19,7 +19,7 @@ return {
  "nvim-telescope/telescope.nvim",
  {"nvim-treesitter/nvim-treesitter",
    opts = {
-	   ensure_installed = { "markdown", "markdown_inline", "lua", "c", "rust", "ssh_config", "git_config", "git_rebase", "gitcommit", "gitignore", "toml"},
+	   ensure_installed = { "markdown", "markdown_inline", "lua", "c", "rust", "ssh_config", "git_config", "git_rebase", "gitcommit", "gitignore", "toml", "latex"},
            highlight = {
     	   	enable = true,
   	   },
@@ -37,4 +37,10 @@ return {
  "hrsh7th/cmp-vsnip",
  "hrsh7th/vim-vsnip",
  "luisiacc/gruvbox-baby",
+ {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+ },
 }

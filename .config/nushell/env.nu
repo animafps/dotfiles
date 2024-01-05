@@ -100,4 +100,5 @@ $env.NU_PLUGIN_DIRS = [
 $env.EDITOR = "/usr/bin/nvim"
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 
+$env.NNN_OPENER = "~/.config/nnn/plugins/nuke"
 #$env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
