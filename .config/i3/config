@@ -43,7 +43,7 @@ exec --no-startup-id dbus-update-activation-environment --all
 
 exec --no-startup-id dex --autostart --environment i3
 
-exec --no-startup-id feh --bg-fill --randomize ~/.wallpaper/*
+exec --no-startup-id feh --bg-scale --randomize ~/.wallpaper/*
 
 exec --no-startup-id picom -bc --config $HOME/.config/picom.conf
 

@@ -43,7 +43,7 @@
 [core]
     pager = less -FRSX
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	editor = nano
+	editor = nvim
 	
 [url "git@github.com:"]
 	insteadOf = https://github.com/
