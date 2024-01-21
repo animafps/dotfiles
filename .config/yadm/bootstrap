@@ -1,9 +1,8 @@
 #!/bin/sh
 mkdir -p ~/.config/alacritty/themes
 git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
-git clone https://github.com/nushell/nu_scripts/ ~/.config/nushell/scripts
 if command -v pacman >/dev/null 2>&1; then
-        sudo pacman -Syu --no-confirm alacritty polybar picom dunst rofi pipewire pipewire-pulse spotifyd pipewire-audio wireplumper sccache ranger easyeffects mpv dex feh scrot nerdfonts 
+        sudo pacman -Syu --no-confirm alacritty fish polybar picom dunst rofi pipewire pipewire-pulse spotifyd pipewire-audio wireplumper sccache ranger easyeffects mpv dex feh scrot nerdfonts 
         mkdir ~/git
         git clone https://aur.archlinux.org/paru.git ~/git/paru
         cd ~/git/paru
@@ -12,6 +11,4 @@ if command -v pacman >/dev/null 2>&1; then
         paru -S xcwd-git xidlehook carapace-bin betterlockscreen
 fi
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-/usr/bin/cargo install nu starship porsmo bat bacon
-mkdir ~/.cache/starship
-starship init nu | save -f ~/.cache/starship/init.nu
+/usr/bin/cargo install starship porsmo bat bacon
