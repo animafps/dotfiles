@@ -2,7 +2,7 @@
 mkdir -p ~/.config/alacritty/themes
 git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
 if command -v pacman >/dev/null 2>&1; then
-        sudo pacman -Syu --no-confirm alacritty fish polybar picom dunst rofi pipewire pipewire-pulse spotifyd pipewire-audio wireplumper sccache ranger easyeffects mpv dex feh scrot nerdfonts 
+        sudo pacman -Syu alacritty fish dunst sccache ranger easyeffects mpv dex feh scrot nerdfonts 
         mkdir ~/git
         git clone https://aur.archlinux.org/paru.git ~/git/paru
         cd ~/git/paru

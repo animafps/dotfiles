@@ -113,8 +113,8 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
+	behavior = cmp.ConfirmBehavior.Insert,
+      	select = true,
     })
   },
   -- Installed sources:
@@ -125,7 +125,7 @@ cmp.setup({
     { name = 'nvim_lua', keyword_length = 2},       -- complete neovim's Lua runtime API such vim.lsp.*
     { name = 'buffer', keyword_length = 2 },        -- source current buffer
     { name = 'vsnip', keyword_length = 2 },         -- nvim-cmp source for vim-vsnip 
-    { name = 'calc'},                               -- source for math calculation
+    { name = 'calc'}, -- source for math calculation
   },
   window = {
       completion = cmp.config.window.bordered(),
@@ -156,3 +156,11 @@ telescope.setup({
     },
   }
 })
+
+vim.opt.conceallevel = 1
+
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+require("lspconfig").rust_analyzer.setup {
+	capabilities = capabilities
+}
