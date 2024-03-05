@@ -1,4 +1,6 @@
 vim.g.mapleader = ';'
+vim.cmd("filetype plugin indent on")
+vim.cmd("syntax enable")
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -79,7 +81,6 @@ vim.diagnostic.config({
 -- noselect: Do not select, force to select one from the menu
 -- shortness: avoid showing extra messages when using completion
 -- updatetime: set updatetime for CursorHold
-vim.opt.completeopt = {'menuone', 'noselect', 'noinsert'}
 vim.opt.shortmess = vim.opt.shortmess + { c = true}
 vim.api.nvim_set_option('updatetime', 300) 
 
@@ -93,59 +94,6 @@ set number
 autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 ]])
 
--- Completion Plugin Setup
-local cmp = require'cmp'
-cmp.setup({
-  -- Enable LSP snippets
-  snippet = {
-    expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body)
-    end,
-  },
-  mapping = {
-    ['<C-p>'] = cmp.mapping.select_prev_item(),
-    ['<C-n>'] = cmp.mapping.select_next_item(),
-    -- Add tab support
-    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-    ['<Tab>'] = cmp.mapping.select_next_item(),
-    ['<C-S-f>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({
-	behavior = cmp.ConfirmBehavior.Insert,
-      	select = true,
-    })
-  },
-  -- Installed sources:
-  sources = {
-    { name = 'path' },                              -- file paths
-    { name = 'nvim_lsp', keyword_length = 3 },      -- from language server
-    { name = 'nvim_lsp_signature_help'},            -- display function signatures with current parameter emphasized
-    { name = 'nvim_lua', keyword_length = 2},       -- complete neovim's Lua runtime API such vim.lsp.*
-    { name = 'buffer', keyword_length = 2 },        -- source current buffer
-    { name = 'vsnip', keyword_length = 2 },         -- nvim-cmp source for vim-vsnip 
-    { name = 'calc'}, -- source for math calculation
-  },
-  window = {
-      completion = cmp.config.window.bordered(),
-      documentation = cmp.config.window.bordered(),
-  },
-  formatting = {
-      fields = {'menu', 'abbr', 'kind'},
-      format = function(entry, item)
-          local menu_icon ={
-              nvim_lsp = 'λ',
-              vsnip = '⋗',
-              buffer = 'Ω',
-              path = '🖫',
-          }
-          item.menu = menu_icon[entry.source.name]
-          return item
-      end,
-  },
-})
-
 local telescope = require('telescope')
 telescope.setup({
   defaults = {
@@ -157,10 +105,23 @@ telescope.setup({
   }
 })
 
-vim.opt.conceallevel = 1
+vim.opt.conceallevel = 2
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 require("lspconfig").rust_analyzer.setup {
 	capabilities = capabilities
 }
+vim.keymap.set('n', 'e', 'j', { noremap = true })
+vim.keymap.set('n', 'o', 'k', { noremap = true })
+vim.keymap.set('n', 'i', 'l', { noremap = true })
+vim.keymap.set('n', 'n', '<Left>')
+ local configs = require("nvim-treesitter.configs")
+ configs.setup({
+          ensure_installed = { "c", "lua", "markdown", "markdown_inline", "rust", "javascript", "html", "latex", "cpp", "vimdoc", "vim", "bash", "fish", "json", "go", "git_rebase", "gitattributes", "gitcommit", "gitignore", "toml", "yaml", "css", "make", "python", "regex", "ssh_config"},
+          sync_install = false,
+          highlight = { enable = true },
+          indent = { enable = true },
+  })
+
+vim.g.vimtex_view_method = 'zathura'
