@@ -1,4 +1,10 @@
 return {
+	{
+	'chomosuke/typst-preview.nvim',
+  lazy = false,
+  version = '0.1.*',
+  build = function() require 'typst-preview'.update() end,
+},
  {"epwalsh/obsidian.nvim",
   version = "*",
   lazy = true,
@@ -15,7 +21,6 @@ return {
      },
     },
  },
- "hrsh7th/nvim-cmp",
  "nvim-telescope/telescope.nvim",
  {"nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",

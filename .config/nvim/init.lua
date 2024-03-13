@@ -120,7 +120,7 @@ vim.keymap.set('n', 'n', '<Left>')
  configs.setup({
           ensure_installed = { "c", "lua", "markdown", "markdown_inline", "rust", "javascript", "html", "latex", "cpp", "vimdoc", "vim", "bash", "fish", "json", "go", "git_rebase", "gitattributes", "gitcommit", "gitignore", "toml", "yaml", "css", "make", "python", "regex", "ssh_config"},
           sync_install = false,
-          highlight = { enable = true },
+          highlight = { enable = true, disable = {"latex"}, additional_vim_regex_highlighting = { "latex", "markdown" }, },
           indent = { enable = true },
   })
 
