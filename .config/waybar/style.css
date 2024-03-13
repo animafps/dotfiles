@@ -119,21 +119,8 @@ window#waybar.chromium {
     color: #d3869b;
 }
 
-@keyframes blink {
-    to {
-        background-color: #fbf1c7;
-        color: #df3f71;
-    }
-}
-
 #battery.critical:not(.charging) {
-    background-color: #282828;
-    color: #d3869b;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    color: #f53c3c;
 }
 
 label:focus {

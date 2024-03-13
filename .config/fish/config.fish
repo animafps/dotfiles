@@ -3,3 +3,9 @@ if status is-interactive
 end
 
 starship init fish | source
+
+function update
+	sudo pacman -Sy
+	sudo powerpill -Su
+	paru -Su --aur --devel
+end
