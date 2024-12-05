@@ -1,7 +1,7 @@
 [user]
 	email = 18208134+animafps@users.noreply.github.com
 	name = Anima
-	signingkey = ~/.ssh/id_ed25519
+	signingkey = ~/.ssh/id_ed25519.pub
 
 [commit]
 	gpgsign = true

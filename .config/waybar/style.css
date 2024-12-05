@@ -1,7 +1,7 @@
 
 * {
     font-family:  "JetBrainsMono Nerd Font";
-    font-size: 11px;
+    font-size: 16px;
 }
 
 window#waybar {
@@ -36,7 +36,7 @@ window#waybar.chromium {
 }*/
 
 #workspaces button {
-    padding: 0 10px;
+    padding: 0 14px;
     background-color: #282828;
     color: #ebdbb2;
     /* Use box-shadow instead of border so the text isn't offset */
@@ -87,7 +87,7 @@ window#waybar.chromium {
 #custom-poweroff,
 #custom-suspend,
 #mpd {
-    padding: 0 7px;
+    padding: 0 10px;
     background-color: #282828;
     color: #ebdbb2;
 }

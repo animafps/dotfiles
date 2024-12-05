@@ -1,5 +1,6 @@
 {
   "layer":"top",
+  "height": 32,
   "modules-left":[
     "hyprland/workspaces"
   ],
@@ -8,6 +9,7 @@
   ],
   "modules-right":[
     "tray",
+    "idle_inhibitor",
     "network",
     "backlight",
     "pulseaudio",
@@ -19,6 +21,13 @@
      "max-length": 200,
      "separate-outputs": true
 
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+        "activated": "☕",
+        "deactivated": "🗙☕"
+    }
   },
   "network":{
     "format":"{ifname}",
